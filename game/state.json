@@ -1,8 +1,13 @@
 {
-  "current": "J♥",
-  "previous": null,
+  "current": "A♥",
+  "previous": "J♥",
   "wins": 0,
-  "losses": 0,
+  "losses": 1,
   "ties": 0,
-  "last": null
+  "last": {
+    "guess": "lower",
+    "from": "J♥",
+    "to": "A♥",
+    "result": "loss"
+  }
 }
