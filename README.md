@@ -11,7 +11,26 @@ Bits of info about me:
 
 ## 🛠️ Stack
 
-<p><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/python.svg" width="32" height="32" alt="Python" title="Python">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/java.svg" width="32" height="32" alt="Java" title="Java">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/c.svg" width="32" height="32" alt="C" title="C">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/javascript.svg" width="32" height="32" alt="JavaScript" title="JavaScript">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/r.svg" width="32" height="32" alt="R" title="R">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/swift.svg" width="32" height="32" alt="Swift" title="Swift">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/react.svg" width="32" height="32" alt="React" title="React">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/html5.svg" width="32" height="32" alt="HTML" title="HTML">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/css3.svg" width="32" height="32" alt="CSS" title="CSS">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/postgresql.svg" width="32" height="32" alt="PostgreSQL" title="PostgreSQL">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/mysql.svg" width="32" height="32" alt="MySQL" title="MySQL">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linux.svg" width="32" height="32" alt="Linux" title="Linux">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/azure.svg" width="32" height="32" alt="Azure" title="Azure">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/git.svg" width="32" height="32" alt="Git" title="Git"></p>
+<table>
+  <tr>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/python.svg" width="40" height="40" alt="Python"><br><sub><b>Python</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/java.svg" width="40" height="40" alt="Java"><br><sub><b>Java</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/c.svg" width="40" height="40" alt="C"><br><sub><b>C</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/javascript.svg" width="40" height="40" alt="JavaScript"><br><sub><b>JavaScript</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/r.svg" width="40" height="40" alt="R"><br><sub><b>R</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/swift.svg" width="40" height="40" alt="Swift"><br><sub><b>Swift</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/react.svg" width="40" height="40" alt="React"><br><sub><b>React</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/html5.svg" width="40" height="40" alt="HTML"><br><sub><b>HTML</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/css3.svg" width="40" height="40" alt="CSS"><br><sub><b>CSS</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/postgresql.svg" width="40" height="40" alt="PostgreSQL"><br><sub><b>PostgreSQL</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/mysql.svg" width="40" height="40" alt="MySQL"><br><sub><b>MySQL</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linux.svg" width="40" height="40" alt="Linux"><br><sub><b>Linux</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/azure.svg" width="40" height="40" alt="Azure"><br><sub><b>Azure</b></sub></td>
+    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/git.svg" width="40" height="40" alt="Git"><br><sub><b>Git</b></sub></td>
+  </tr>
+</table>
 
 **Also:** SQL · scikit-learn · OpenCV · MediaPipe · Cirq · Snowflake · Jira
 
