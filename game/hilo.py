@@ -193,7 +193,7 @@ def render_readme_block(state):
         "## Higher or Lower?",
         "",
         "Anyone can play. Will the next card be **higher** or **lower** than the one on the table?",
-        "The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool)",
+        "The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).",
         "",
         f'<img src="game/table.svg?v={RNG.getrandbits(32):08x}" alt="Card on the table: {state["current"]}" width="340">',
         "",
