@@ -58,6 +58,25 @@ Bigger one I can't share publicly: an Azure-based ML system detecting income sta
 - 2× Junction hackathon participant
 - Ex-competitive footballer (top Finnish junior league) and licensed ref turned into an active gym goer
 
+<!-- HILO:START -->
+## 🃏 Higher or Lower?
+
+Anyone can play. Will the next card be **higher** or **lower** than the one on the table?
+The deck is reshuffled before every draw. Aces are high.
+
+<img src="game/table.svg?v=0" alt="Card on the table: J♥" width="470">
+
+### 👉 [⬆️ Higher](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Chigher&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%20%F0%9F%83%8F%0A%0AThe%20deck%20gets%20shuffled%20and%20the%20board%20updates%20in%20about%20a%20minute.) &nbsp;&nbsp; [⬇️ Lower](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Clower&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%20%F0%9F%83%8F%0A%0AThe%20deck%20gets%20shuffled%20and%20the%20board%20updates%20in%20about%20a%20minute.)
+
+| Wins | Losses | Ties | Games |
+|:---:|:---:|:---:|:---:|
+| **–** (0) | **–** (0) | – (0) | 0 |
+
+
+
+<sub>Clicking opens a pre-filled GitHub issue. Press <b>Create</b> and a GitHub Action shuffles and deals the next card.</sub>
+<!-- HILO:END -->
+
 ## 📫 Reach me
 
 <p><a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="icons/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn"></a>&nbsp;<a href="PORTFOLIO_URL"><img src="icons/portfolio.svg" width="32" height="32" alt="Portfolio" title="Portfolio"></a>&nbsp;<a href="mailto:jussiartturi.gronroos@gmail.com"><img src="icons/email.svg" width="32" height="32" alt="Email" title="Email"></a></p>

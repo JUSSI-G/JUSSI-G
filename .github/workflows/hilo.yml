@@ -1,0 +1,54 @@
+name: Higher or Lower
+
+on:
+  issues:
+    types: [opened]
+
+# One move at a time, so two people clicking at once can't clash.
+concurrency:
+  group: hilo
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  play:
+    if: startsWith(github.event.issue.title, 'hilo|')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Deal the next card
+        id: move
+        env:
+          # Passed as env vars, never inlined into the script, so issue text can't inject commands.
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_USER: ${{ github.event.issue.user.login }}
+          RESULT_FILE: ${{ runner.temp }}/result.md
+        run: |
+          if python game/hilo.py; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Commit the new board
+        if: steps.move.outputs.ok == 'true'
+        env:
+          ISSUE_USER: ${{ github.event.issue.user.login }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md game/state.json game/table.svg
+          git commit -m "🃏 @${ISSUE_USER} played a card"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+
+      - name: Reply and close the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "${{ runner.temp }}/result.md"
+          gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY"
