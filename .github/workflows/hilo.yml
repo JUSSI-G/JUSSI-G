@@ -4,7 +4,6 @@ on:
   issues:
     types: [opened]
 
-# One move at a time, so two people clicking at once can't clash.
 concurrency:
   group: hilo
   cancel-in-progress: false
@@ -27,7 +26,6 @@ jobs:
       - name: Deal the next card
         id: move
         env:
-          # Passed as env vars, never inlined into the script, so issue text can't inject commands.
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_USER: ${{ github.event.issue.user.login }}
           RESULT_FILE: ${{ runner.temp }}/result.md
@@ -36,13 +34,11 @@ jobs:
 
       - name: Commit the new board
         if: steps.move.outputs.ok == 'true'
-        env:
-          ISSUE_USER: ${{ github.event.issue.user.login }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md game/state.json game/table.svg
-          git commit -m "🃏 @${ISSUE_USER} played a card"
+          git commit -m "🃏 A card was played"
           for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
 
       - name: Reply and close the issue

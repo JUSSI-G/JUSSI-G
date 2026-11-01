@@ -1,18 +1,3 @@
-"""Community Higher/Lower card game for a GitHub profile README.
-
-Each guess is made against a freshly shuffled full deck, so every draw is random.
-Triggered by a GitHub Action when someone opens an issue titled "hilo|higher"
-or "hilo|lower". The guess is read from environment variables (never the
-command line, so issue text can't inject anything).
-
-Writes:
-  game/state.json   - the scoreboard
-  game/table.svg    - animated shuffle + deal of the new card
-  README.md         - the block between the HILO markers
-
-Run with `--reset` to start over, or `--render` to only redraw.
-"""
-
 import json
 import os
 import random
@@ -36,10 +21,8 @@ RNG = random.SystemRandom()
 
 
 def value(card):
-    return RANKS.index(card[:-1])  # 2 low ... A high
+    return RANKS.index(card[:-1])
 
-
-# ---------------------------------------------------------------- state ----
 
 def new_state():
     return {"current": RNG.choice(DECK), "previous": None,
@@ -59,7 +42,7 @@ def save_state(state):
 def play(state, guess, user):
     old = state["current"]
     deck = [c for c in DECK if c != old]
-    RNG.shuffle(deck)          # fresh shuffle every single guess
+    RNG.shuffle(deck)
     new = deck[0]
 
     a, b = value(old), value(new)
@@ -74,22 +57,20 @@ def play(state, guess, user):
         msg = f"❌ {old} → **{new}**. Not this time."
 
     state["previous"], state["current"] = old, new
-    state["last"] = {"user": user, "guess": guess, "from": old, "to": new, "result": result}
+    state["last"] = {"guess": guess, "from": old, "to": new, "result": result}
     return msg
 
-
-# ----------------------------------------------------------------- svg -----
 
 CARD_W, CARD_H = 100, 133
 
 
 FONT_B64 = __import__("base64").b64encode((Path(__file__).parent / "cards.woff").read_bytes()).decode()
-FS = 174                      # font size where the glyph is ~100x133 px (Noto Sans Symbols 2)
-GX = 51 / 1000 * FS          # glyph left bearing
-GY = 766 / 1000 * FS         # glyph top above baseline
+FS = 174
+GX = 51 / 1000 * FS
+GY = 766 / 1000 * FS
 SUIT_BASE = {"♠": 0x1F0A0, "♥": 0x1F0B0, "♦": 0x1F0C0, "♣": 0x1F0D0}
 RANK_OFF = {"A": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9,
-            "10": 10, "J": 11, "Q": 13, "K": 14}   # 12 is the Knight, skipped
+            "10": 10, "J": 11, "Q": 13, "K": 14}
 
 
 def glyph(card):
@@ -97,8 +78,8 @@ def glyph(card):
 
 
 def _card(ch, x, y):
-    # The Unicode glyph on a fill that matches GitHub's page background, so it
-    # looks see-through but hides the cards underneath while shuffling.
+
+
     return (f'<rect class="bg" x="{x+1}" y="{y+1}" width="{CARD_W-2}" height="{CARD_H-2}" rx="7"/>'
             f'<text class="c" x="{x-GX:.1f}" y="{y+GY:.1f}">{ch}</text>')
 
@@ -157,8 +138,6 @@ def render_svg(state):
 """
 
 
-# -------------------------------------------------------------- readme -----
-
 def pct(n, total):
     return f"{round(100 * n / total)}%" if total else "–"
 
@@ -172,12 +151,6 @@ def issue_link(guess):
 def render_readme_block(state):
     w, l, t = state["wins"], state["losses"], state["ties"]
     total = w + l + t
-    last = state["last"]
-    last_line = ""
-    if last:
-        icon = {"win": "✅", "loss": "❌", "tie": "🤝"}[last["result"]]
-        last_line = (f"<sub>Last play: <a href=\"https://github.com/{last['user']}\">@{last['user']}</a> "
-                     f"said <b>{last['guess']}</b> on {last['from']} → {last['to']} {icon}</sub>")
     return "\n".join([
         START,
         "## 🃏 Higher or Lower?",
@@ -185,15 +158,11 @@ def render_readme_block(state):
         "Anyone can play. Will the next card be **higher** or **lower** than the one on the table?",
         "The deck is reshuffled before every draw. Aces are high.",
         "",
-        f'<img src="game/table.svg?v={total}" alt="Card on the table: {state["current"]}" width="470">',
+        f'<img src="game/table.svg?v={RNG.getrandbits(32):08x}" alt="Card on the table: {state["current"]}" width="470">',
         "",
         f"### 👉 [⬆️ Higher]({issue_link('higher')}) &nbsp;&nbsp; [⬇️ Lower]({issue_link('lower')})",
         "",
-        "| Wins | Losses | Ties | Games |",
-        "|:---:|:---:|:---:|:---:|",
-        f"| **{pct(w, total)}** ({w}) | **{pct(l, total)}** ({l}) | {pct(t, total)} ({t}) | {total} |",
-        "",
-        last_line,
+        f"🏆 **Community win rate: {pct(w, total)}**",
         "",
         "<sub>Clicking opens a pre-filled GitHub issue. Press <b>Create</b> and a GitHub Action shuffles and deals the next card.</sub>",
         END,
@@ -210,8 +179,6 @@ def write_outputs(state):
         text = text.rstrip("\n") + "\n\n" + block + "\n"
     README_FILE.write_text(text, encoding="utf-8")
 
-
-# ---------------------------------------------------------------- main -----
 
 def main():
     if "--reset" in sys.argv:
@@ -230,7 +197,7 @@ def main():
     guess = title.split("|", 1)[1].strip() if "|" in title else ""
 
     if guess not in ("higher", "lower") or not user:
-        msg, ok = "🤔 I couldn't read that guess. Use the **Higher** or **Lower** link on the profile and don't edit the title.", False
+        msg, ok = "I couldn't read that guess. Use the **Higher** or **Lower** link on the profile and don't edit the title.", False
     else:
         state = load_state()
         msg = play(state, guess, user)
