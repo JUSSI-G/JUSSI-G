@@ -25,7 +25,7 @@ def value(card):
 
 
 def new_state():
-    return {"current": RNG.choice(DECK), "previous": None,
+    return {"current": RNG.choice(DECK), "previous": None, "recent": [],
             "wins": 0, "losses": 0, "ties": 0, "last": None}
 
 
@@ -57,6 +57,7 @@ def play(state, guess, user):
         msg = f"❌ {old} → **{new}**. Not this time."
 
     state["previous"], state["current"] = old, new
+    state["recent"] = ([old] + state.get("recent", []))[:3]
     state["last"] = {"guess": guess, "from": old, "to": new, "result": result}
     return msg
 
@@ -93,13 +94,12 @@ def card_back(x, y):
 
 
 def render_svg(state):
-    W, H = 470, 200
-    prev_x, deck_x, deal_x, top = 20, 170, 340, 40
+    W, H = 340, 200
+    deck_x, deal_x, top = 60, 220, 40
     shuffle_cards = ""
     for i in range(5):
         shuffle_cards += f'<g class="sh sh{i}">{card_back(deck_x, top)}</g>'
 
-    prev = card_face(state["previous"], prev_x, top) if state["previous"] else ""
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Card on the table: {state['current']}">
   <style>
     @font-face {{ font-family: Cards; src: url(data:font/woff;base64,{FONT_B64}) format("woff"); }}
@@ -125,10 +125,8 @@ def render_svg(state):
     @keyframes show {{ from {{ transform: scaleX(0); }} to {{ transform: scaleX(1); }} }}
     .label {{ font: 600 12px -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #8b949e; letter-spacing: .08em; }}
   </style>
-  <text class="label" x="{prev_x + CARD_W/2}" y="24" text-anchor="middle">{'PREVIOUS' if state['previous'] else ''}</text>
   <text class="label" x="{deck_x + CARD_W/2}" y="24" text-anchor="middle">DECK</text>
   <text class="label" x="{deal_x + CARD_W/2}" y="24" text-anchor="middle">ON THE TABLE</text>
-  <g class="prev">{prev}</g>
   {shuffle_cards}
   <g class="deal">
     <g class="flip-back">{card_back(deck_x, top)}</g>
@@ -158,8 +156,9 @@ def render_readme_block(state):
         "Anyone can play. Will the next card be **higher** or **lower** than the one on the table?",
         "The deck is reshuffled before every draw. Aces are high.",
         "",
-        f'<img src="game/table.svg?v={RNG.getrandbits(32):08x}" alt="Card on the table: {state["current"]}" width="470">',
+        f'<img src="game/table.svg?v={RNG.getrandbits(32):08x}" alt="Card on the table: {state["current"]}" width="340">',
         "",
+        *([f"<sub>Recent: {' · '.join(state['recent'])}</sub>", ""] if state.get("recent") else []),
         f"### 👉 [⬆️ Higher]({issue_link('higher')}) &nbsp;&nbsp; [⬇️ Lower]({issue_link('lower')})",
         "",
         f"🏆 **Community win rate: {pct(w, total)}**",
@@ -197,7 +196,7 @@ def main():
     guess = title.split("|", 1)[1].strip() if "|" in title else ""
 
     if guess not in ("higher", "lower") or not user:
-        msg, ok = "I couldn't read that guess. Use the **Higher** or **Lower** link on the profile and don't edit the title.", False
+        msg, ok = "🤔 I couldn't read that guess. Use the **Higher** or **Lower** link on the profile and don't edit the title.", False
     else:
         state = load_state()
         msg = play(state, guess, user)
