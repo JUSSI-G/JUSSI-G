@@ -59,20 +59,22 @@ Bigger one I can't share publicly: an Azure-based ML system detecting income sta
 - Ex-competitive footballer (top Finnish junior league) and licensed ref turned into an active gym goer
 
 <!-- HILO:START -->
-## 🃏 Higher or Lower?
+## Higher or Lower?
 
 Anyone can play. Will the next card be **higher** or **lower** than the one on the table?
 The deck is reshuffled before every draw. Aces are high.
 
-<img src="game/table.svg?v=ab79f167" alt="Card on the table: 4♦" width="340">
+<img src="game/table.svg?v=3dc4a462" alt="Card on the table: 4♦" width="340">
 
 <sub>Recent: 4♥ · K♦ · 9♦</sub>
 
-### 👉 [⬆️ Higher](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Chigher&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%20%F0%9F%83%8F%0A%0AYour%20result%20appears%20here%20as%20a%20comment%20in%20about%20a%20minute.%20You%20can%20also%20refresh%20the%20profile%20page%20to%20see%20the%20new%20card.) &nbsp;&nbsp; [⬇️ Lower](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Clower&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%20%F0%9F%83%8F%0A%0AYour%20result%20appears%20here%20as%20a%20comment%20in%20about%20a%20minute.%20You%20can%20also%20refresh%20the%20profile%20page%20to%20see%20the%20new%20card.)
+### [▲ Higher](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Chigher&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%0A%0AYour%20result%20appears%20here%20as%20a%20comment%20in%20about%20a%20minute.%20You%20can%20also%20refresh%20the%20profile%20page%20to%20see%20the%20new%20card.) &nbsp;&nbsp;·&nbsp;&nbsp; [▼ Lower](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Clower&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%0A%0AYour%20result%20appears%20here%20as%20a%20comment%20in%20about%20a%20minute.%20You%20can%20also%20refresh%20the%20profile%20page%20to%20see%20the%20new%20card.)
 
-🏆 **Community win rate: 40%**
+<sub><img src="icons/cirq.svg" width="14" height="14" alt=""> Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href="https://quantumnumbers.anu.edu.au">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).</sub>
 
-⏳ **Just played? Give it up to a minute, then refresh the page to see your card.**
+**Community win rate: 40%**
+
+**Just played? Give it up to a minute, then refresh the page to see your card.**
 
 <sub>Clicking opens a pre-filled GitHub issue. Press <b>Create</b> and a GitHub Action shuffles and deals the next card.</sub>
 <!-- HILO:END -->

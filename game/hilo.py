@@ -4,6 +4,7 @@ import random
 import sys
 from pathlib import Path
 from urllib.parse import quote
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_FILE = ROOT / "game" / "state.json"
@@ -39,11 +40,35 @@ def save_state(state):
     STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def quantum_index(n):
+    key = os.environ.get("QRNG_API_KEY", "").strip()
+    if not key:
+        return None
+    try:
+        req = Request("https://api.quantumnumbers.anu.edu.au?length=16&type=uint16",
+                      headers={"x-api-key": key})
+        with urlopen(req, timeout=10) as r:
+            data = json.loads(r.read().decode())
+        if not data.get("success"):
+            return None
+        limit = 65536 - 65536 % n
+        for v in data["data"]:
+            if 0 <= v < limit:
+                return v % n
+    except Exception:
+        return None
+    return None
+
+
 def play(state, guess, user):
     old = state["current"]
     deck = [c for c in DECK if c != old]
-    RNG.shuffle(deck)
-    new = deck[0]
+    idx = quantum_index(len(deck))
+    if idx is None:
+        RNG.shuffle(deck)
+        new, source = deck[0], "classical"
+    else:
+        new, source = deck[idx], "quantum"
 
     a, b = value(old), value(new)
     if a == b:
@@ -58,7 +83,9 @@ def play(state, guess, user):
 
     state["previous"], state["current"] = old, new
     state["recent"] = ([old] + state.get("recent", []))[:3]
-    state["last"] = {"guess": guess, "from": old, "to": new, "result": result}
+    state["last"] = {"guess": guess, "from": old, "to": new, "result": result, "source": source}
+    if source == "quantum":
+        msg += "\n\nThis card was drawn using quantum vacuum fluctuations measured by the [ANU Quantum Random Numbers](https://quantumnumbers.anu.edu.au) lab."
     return msg
 
 
@@ -154,7 +181,7 @@ def pct(n, total):
 
 def issue_link(guess):
     title = quote(f"hilo|{guess}")
-    body = quote("Just press **Create** below, no need to write anything. 🃏\n\nYour result appears here as a comment in about a minute. You can also refresh the profile page to see the new card.")
+    body = quote("Just press **Create** below, no need to write anything.\n\nYour result appears here as a comment in about a minute. You can also refresh the profile page to see the new card.")
     return f"https://github.com/{REPO}/issues/new?title={title}&body={body}"
 
 
@@ -163,7 +190,7 @@ def render_readme_block(state):
     total = w + l + t
     return "\n".join([
         START,
-        "## 🃏 Higher or Lower?",
+        "## Higher or Lower?",
         "",
         "Anyone can play. Will the next card be **higher** or **lower** than the one on the table?",
         "The deck is reshuffled before every draw. Aces are high.",
@@ -171,11 +198,13 @@ def render_readme_block(state):
         f'<img src="game/table.svg?v={RNG.getrandbits(32):08x}" alt="Card on the table: {state["current"]}" width="340">',
         "",
         *([f"<sub>Recent: {' · '.join(state['recent'])}</sub>", ""] if state.get("recent") else []),
-        f"### 👉 [⬆️ Higher]({issue_link('higher')}) &nbsp;&nbsp; [⬇️ Lower]({issue_link('lower')})",
+        f"### [▲ Higher]({issue_link('higher')}) &nbsp;&nbsp;·&nbsp;&nbsp; [▼ Lower]({issue_link('lower')})",
         "",
-        f"🏆 **Community win rate: {pct(w, total)}**",
+        "<sub><img src=\"icons/cirq.svg\" width=\"14\" height=\"14\" alt=\"\"> Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).</sub>",
         "",
-        "⏳ **Just played? Give it up to a minute, then refresh the page to see your card.**",
+        f"**Community win rate: {pct(w, total)}**",
+        "",
+        "**Just played? Give it up to a minute, then refresh the page to see your card.**",
         "",
         "<sub>Clicking opens a pre-filled GitHub issue. Press <b>Create</b> and a GitHub Action shuffles and deals the next card.</sub>",
         END,
@@ -210,7 +239,7 @@ def main():
     guess = title.split("|", 1)[1].strip() if "|" in title else ""
 
     if guess not in ("higher", "lower") or not user:
-        msg, ok = "🤔 I couldn't read that guess. Use the **Higher** or **Lower** link on the profile and don't edit the title.", False
+        msg, ok = "I couldn't read that guess. Use the **Higher** or **Lower** link on the profile and don't edit the title.", False
     else:
         state = load_state()
         msg = play(state, guess, user)
@@ -218,7 +247,7 @@ def main():
         write_outputs(state)
         ok = True
 
-    msg += f"\n\n[Back to the table 🃏](https://github.com/{REPO.split('/')[0]})"
+    msg += f"\n\n[Back to the table](https://github.com/{REPO.split('/')[0]})"
     if os.environ.get("RESULT_FILE"):
         Path(os.environ["RESULT_FILE"]).write_text(msg, encoding="utf-8")
     print(msg)

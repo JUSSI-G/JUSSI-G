@@ -29,6 +29,7 @@ jobs:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_USER: ${{ github.event.issue.user.login }}
           RESULT_FILE: ${{ runner.temp }}/result.md
+          QRNG_API_KEY: ${{ secrets.QRNG_API_KEY }}
         run: |
           if python game/hilo.py; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
 
