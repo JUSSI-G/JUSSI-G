@@ -11,20 +11,7 @@ Bits of info about me:
 
 ## 🛠️ Stack
 
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/python.svg" width="32" height="32" alt="Python" title="Python">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/java.svg" width="32" height="32" alt="Java" title="Java">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/c.svg" width="32" height="32" alt="C" title="C">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/javascript.svg" width="32" height="32" alt="JavaScript" title="JavaScript">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/r.svg" width="32" height="32" alt="R" title="R">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/swift.svg" width="32" height="32" alt="Swift" title="Swift">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/react.svg" width="32" height="32" alt="React" title="React">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/html5.svg" width="32" height="32" alt="HTML" title="HTML">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/css3.svg" width="32" height="32" alt="CSS" title="CSS">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/postgresql.svg" width="32" height="32" alt="PostgreSQL" title="PostgreSQL">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/mysql.svg" width="32" height="32" alt="MySQL" title="MySQL">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/linux.svg" width="32" height="32" alt="Linux" title="Linux">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/azure.svg" width="32" height="32" alt="Azure" title="Azure">
-<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/git.svg" width="32" height="32" alt="Git" title="Git">
+<p><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/python.svg" width="32" height="32" alt="Python" title="Python">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/java.svg" width="32" height="32" alt="Java" title="Java">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/c.svg" width="32" height="32" alt="C" title="C">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/javascript.svg" width="32" height="32" alt="JavaScript" title="JavaScript">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/r.svg" width="32" height="32" alt="R" title="R">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/swift.svg" width="32" height="32" alt="Swift" title="Swift">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/react.svg" width="32" height="32" alt="React" title="React">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/html5.svg" width="32" height="32" alt="HTML" title="HTML">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/css3.svg" width="32" height="32" alt="CSS" title="CSS">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/postgresql.svg" width="32" height="32" alt="PostgreSQL" title="PostgreSQL">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/mysql.svg" width="32" height="32" alt="MySQL" title="MySQL">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linux.svg" width="32" height="32" alt="Linux" title="Linux">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/azure.svg" width="32" height="32" alt="Azure" title="Azure">&nbsp;<img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/git.svg" width="32" height="32" alt="Git" title="Git"></p>
 
 **Also:** SQL · scikit-learn · OpenCV · MediaPipe · Cirq · Snowflake · Jira
 
@@ -47,6 +34,4 @@ Bigger one I can't share publicly: an Azure-based ML system detecting income sta
 
 ## 📫 Reach me
 
-<a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn"></a>&nbsp;
-<a href="PORTFOLIO_URL" title="Portfolio">🌐</a>&nbsp;
-<a href="mailto:jussiartturi.gronroos@gmail.com"><img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/email.svg" width="32" height="32" alt="Email" title="Email"></a>
+<p><a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn"></a>&nbsp;<a href="PORTFOLIO_URL" title="Portfolio">🌐</a>&nbsp;<a href="mailto:jussiartturi.gronroos@gmail.com"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/email.svg" width="32" height="32" alt="Email" title="Email"></a></p>
