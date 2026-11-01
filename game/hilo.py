@@ -48,13 +48,13 @@ def play(state, guess, user):
     a, b = value(old), value(new)
     if a == b:
         result, state["ties"] = "tie", state["ties"] + 1
-        msg = f"🤝 {old} → **{new}**. Same rank, it's a tie."
+        msg = f"## 🤝 It's a tie!\n\n{old} → **{new}**. Same rank, nobody wins this one."
     elif (guess == "higher") == (b > a):
         result, state["wins"] = "win", state["wins"] + 1
-        msg = f"✅ {old} → **{new}**. You called it!"
+        msg = f"## ✅ You won!\n\nYou guessed **{guess}**: {old} → **{new}**."
     else:
         result, state["losses"] = "loss", state["losses"] + 1
-        msg = f"❌ {old} → **{new}**. Not this time."
+        msg = f"## ❌ You lost\n\nYou guessed **{guess}**: {old} → **{new}**. Better luck next time!"
 
     state["previous"], state["current"] = old, new
     state["recent"] = ([old] + state.get("recent", []))[:3]
@@ -94,8 +94,14 @@ def card_back(x, y):
 
 
 def render_svg(state):
-    W, H = 340, 200
+    W, H = 340, 230
     deck_x, deal_x, top = 60, 220, 40
+    last = state.get("last")
+    verdict = ""
+    if last:
+        word, cls = {"win": ("CORRECT!", "win"), "loss": ("WRONG", "loss"), "tie": ("TIE", "tie")}[last["result"]]
+        verdict = (f'<text class="guess" x="{W/2}" y="212" text-anchor="middle">GUESSED {last["guess"].upper()} THAN {last["from"]}'
+                   f'<tspan class="verdict {cls}" dx="10">{word}</tspan></text>')
     shuffle_cards = ""
     for i in range(5):
         shuffle_cards += f'<g class="sh sh{i}">{card_back(deck_x, top)}</g>'
@@ -123,6 +129,11 @@ def render_svg(state):
     .flip-front {{ animation: show .18s ease-out 2.58s both; }}
     @keyframes hide {{ from {{ transform: scaleX(1); }} to {{ transform: scaleX(0); }} }}
     @keyframes show {{ from {{ transform: scaleX(0); }} to {{ transform: scaleX(1); }} }}
+    .guess {{ font: 600 13px -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #8b949e; letter-spacing: .06em; }}
+    .verdict {{ font-size: 17px; font-weight: 800; animation: pop .3s ease-out 2.8s both; }}
+    .win {{ fill: #2da44e; }} .loss {{ fill: #cf222e; }} .tie {{ fill: #8b949e; }}
+    @media (prefers-color-scheme: dark) {{ .win {{ fill: #3fb950; }} .loss {{ fill: #f85149; }} }}
+    @keyframes pop {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
     .label {{ font: 600 12px -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #8b949e; letter-spacing: .08em; }}
   </style>
   <text class="label" x="{deck_x + CARD_W/2}" y="24" text-anchor="middle">DECK</text>
@@ -132,6 +143,7 @@ def render_svg(state):
     <g class="flip-back">{card_back(deck_x, top)}</g>
     <g class="flip-front">{card_face(state['current'], deck_x, top)}</g>
   </g>
+  {verdict}
 </svg>
 """
 
@@ -142,7 +154,7 @@ def pct(n, total):
 
 def issue_link(guess):
     title = quote(f"hilo|{guess}")
-    body = quote("Just press **Create** below, no need to write anything. 🃏\n\nThe deck gets shuffled and the board updates in about a minute.")
+    body = quote("Just press **Create** below, no need to write anything. 🃏\n\nYour result appears here as a comment in about a minute. You can also refresh the profile page to see the new card.")
     return f"https://github.com/{REPO}/issues/new?title={title}&body={body}"
 
 
@@ -162,6 +174,8 @@ def render_readme_block(state):
         f"### 👉 [⬆️ Higher]({issue_link('higher')}) &nbsp;&nbsp; [⬇️ Lower]({issue_link('lower')})",
         "",
         f"🏆 **Community win rate: {pct(w, total)}**",
+        "",
+        "⏳ **Just played? Give it up to a minute, then refresh the page to see your card.**",
         "",
         "<sub>Clicking opens a pre-filled GitHub issue. Press <b>Create</b> and a GitHub Action shuffles and deals the next card.</sub>",
         END,
