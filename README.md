@@ -1,7 +1,7 @@
 # Hei, I'm Jussi 👋
 
 CS master's student at **Aalto University** on the *Quantum-aware software systems* track, with a minor in ML, data science & AI.
-I like building things that turn messy real-world input (images, video, financial data, qubits) into something useful. 
+I like building things that turn messy real-world input (images, video, financial data, qubits) into something useful.
 
 Bits of info about me:
 - Software & Systems Engineering B.Sc. from LUT + double degree from Hebei University of Technology, China
@@ -11,10 +11,22 @@ Bits of info about me:
 
 ## 🛠️ Stack
 
-**Languages:** Python · Java · C · JavaScript · R · Swift · SQL
-**ML & data:** scikit-learn · OpenCV · MediaPipe · Cirq · Snowflake
-**Web:** React · HTML · CSS
-**Infra & tools:** Linux · Azure · PostgreSQL · MySQL · Git · Jira
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/python.svg" width="32" height="32" alt="Python" title="Python">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/java.svg" width="32" height="32" alt="Java" title="Java">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/c.svg" width="32" height="32" alt="C" title="C">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/javascript.svg" width="32" height="32" alt="JavaScript" title="JavaScript">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/r.svg" width="32" height="32" alt="R" title="R">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/swift.svg" width="32" height="32" alt="Swift" title="Swift">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/react.svg" width="32" height="32" alt="React" title="React">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/html5.svg" width="32" height="32" alt="HTML" title="HTML">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/css3.svg" width="32" height="32" alt="CSS" title="CSS">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/postgresql.svg" width="32" height="32" alt="PostgreSQL" title="PostgreSQL">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/mysql.svg" width="32" height="32" alt="MySQL" title="MySQL">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/linux.svg" width="32" height="32" alt="Linux" title="Linux">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/azure.svg" width="32" height="32" alt="Azure" title="Azure">
+<img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/git.svg" width="32" height="32" alt="Git" title="Git">
+
+**Also:** SQL · scikit-learn · OpenCV · MediaPipe · Cirq · Snowflake · Jira
 
 ## 📌 Some featured projects
 
@@ -31,7 +43,10 @@ Bigger one I can't share publicly: an Azure-based ML system detecting income sta
 - Running a home server with cloud storage, Home Assistant, game servers and a local LLM
 - Raspberry Pi side quests: home VPN, network-wide ad blocking
 - 2× Junction hackathon participant
-- Ex-competitive footballer (top Finnish junior league) and licensed ref turned into a active gym goer. 
+- Ex-competitive footballer (top Finnish junior league) and licensed ref turned into an active gym goer
 
 ## 📫 Reach me
-[LinkedIn](https://www.linkedin.com/in/YOUR_HANDLE) · PORTFOLIO ·jussiartturi.gronroos@gmail.com 
+
+<a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn"></a>&nbsp;
+<a href="PORTFOLIO_URL" title="Portfolio">🌐</a>&nbsp;
+<a href="mailto:jussiartturi.gronroos@gmail.com"><img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/email.svg" width="32" height="32" alt="Email" title="Email"></a>
