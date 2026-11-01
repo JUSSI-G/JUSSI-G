@@ -1,16 +1,17 @@
 {
-  "current": "K♦",
-  "previous": "9♦",
-  "wins": 1,
+  "current": "4♥",
+  "previous": "K♦",
+  "wins": 2,
   "losses": 2,
   "ties": 0,
   "last": {
     "guess": "lower",
-    "from": "9♦",
-    "to": "K♦",
-    "result": "loss"
+    "from": "K♦",
+    "to": "4♥",
+    "result": "win"
   },
   "recent": [
+    "K♦",
     "9♦"
   ]
 }
