@@ -64,11 +64,11 @@ Bigger one I can't share publicly: an Azure-based ML system detecting income sta
 Anyone can play. Will the next card be **higher** or **lower** than the one on the table?
 The deck is reshuffled before every draw. Aces are high.
 
-<img src="game/table.svg?v=e96708bf" alt="Card on the table: A♥" width="470">
+<img src="game/table.svg?v=86504951" alt="Card on the table: 9♦" width="470">
 
 ### 👉 [⬆️ Higher](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Chigher&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%20%F0%9F%83%8F%0A%0AThe%20deck%20gets%20shuffled%20and%20the%20board%20updates%20in%20about%20a%20minute.) &nbsp;&nbsp; [⬇️ Lower](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Clower&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%20%F0%9F%83%8F%0A%0AThe%20deck%20gets%20shuffled%20and%20the%20board%20updates%20in%20about%20a%20minute.)
 
-🏆 **Community win rate: 0%**
+🏆 **Community win rate: 50%**
 
 <sub>Clicking opens a pre-filled GitHub issue. Press <b>Create</b> and a GitHub Action shuffles and deals the next card.</sub>
 <!-- HILO:END -->
