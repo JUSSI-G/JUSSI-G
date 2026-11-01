@@ -13,26 +13,33 @@ Bits of info about me:
 
 <table>
   <tr>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/python.svg" width="40" height="40" alt="Python"><br><sub><b>Python</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/java.svg" width="40" height="40" alt="Java"><br><sub><b>Java</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/c.svg" width="40" height="40" alt="C"><br><sub><b>C</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/javascript.svg" width="40" height="40" alt="JavaScript"><br><sub><b>JavaScript</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/r.svg" width="40" height="40" alt="R"><br><sub><b>R</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/swift.svg" width="40" height="40" alt="Swift"><br><sub><b>Swift</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/react.svg" width="40" height="40" alt="React"><br><sub><b>React</b></sub></td>
+    <td align="center" width="96"><img src="icons/python.svg" width="40" height="40" alt="Python"><br><sub><b>Python</b></sub></td>
+    <td align="center" width="96"><img src="icons/java.svg" width="40" height="40" alt="Java"><br><sub><b>Java</b></sub></td>
+    <td align="center" width="96"><img src="icons/c.svg" width="40" height="40" alt="C"><br><sub><b>C</b></sub></td>
+    <td align="center" width="96"><img src="icons/javascript.svg" width="40" height="40" alt="JavaScript"><br><sub><b>JavaScript</b></sub></td>
+    <td align="center" width="96"><img src="icons/r.svg" width="40" height="40" alt="R"><br><sub><b>R</b></sub></td>
+    <td align="center" width="96"><img src="icons/swift.svg" width="40" height="40" alt="Swift"><br><sub><b>Swift</b></sub></td>
+    <td align="center" width="96"><img src="icons/sql.svg" width="40" height="40" alt="SQL"><br><sub><b>SQL</b></sub></td>
   </tr>
   <tr>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/html5.svg" width="40" height="40" alt="HTML"><br><sub><b>HTML</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/css3.svg" width="40" height="40" alt="CSS"><br><sub><b>CSS</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/postgresql.svg" width="40" height="40" alt="PostgreSQL"><br><sub><b>PostgreSQL</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/mysql.svg" width="40" height="40" alt="MySQL"><br><sub><b>MySQL</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linux.svg" width="40" height="40" alt="Linux"><br><sub><b>Linux</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/azure.svg" width="40" height="40" alt="Azure"><br><sub><b>Azure</b></sub></td>
-    <td align="center" width="96"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/git.svg" width="40" height="40" alt="Git"><br><sub><b>Git</b></sub></td>
+    <td align="center" width="96"><img src="icons/scikit_learn.svg" width="40" height="40" alt="scikit-learn"><br><sub><b>scikit-learn</b></sub></td>
+    <td align="center" width="96"><img src="icons/opencv.svg" width="40" height="40" alt="OpenCV"><br><sub><b>OpenCV</b></sub></td>
+    <td align="center" width="96"><img src="icons/mediapipe.svg" width="40" height="40" alt="MediaPipe"><br><sub><b>MediaPipe</b></sub></td>
+    <td align="center" width="96"><img src="icons/cirq.svg" width="40" height="40" alt="Cirq"><br><sub><b>Cirq</b></sub></td>
+    <td align="center" width="96"><img src="icons/react.svg" width="40" height="40" alt="React"><br><sub><b>React</b></sub></td>
+    <td align="center" width="96"><img src="icons/html5.svg" width="40" height="40" alt="HTML"><br><sub><b>HTML</b></sub></td>
+    <td align="center" width="96"><img src="icons/css3.svg" width="40" height="40" alt="CSS"><br><sub><b>CSS</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center" width="96"><img src="icons/postgresql.svg" width="40" height="40" alt="PostgreSQL"><br><sub><b>PostgreSQL</b></sub></td>
+    <td align="center" width="96"><img src="icons/mysql.svg" width="40" height="40" alt="MySQL"><br><sub><b>MySQL</b></sub></td>
+    <td align="center" width="96"><img src="icons/snowflake.svg" width="40" height="40" alt="Snowflake"><br><sub><b>Snowflake</b></sub></td>
+    <td align="center" width="96"><img src="icons/linux.svg" width="40" height="40" alt="Linux"><br><sub><b>Linux</b></sub></td>
+    <td align="center" width="96"><img src="icons/azure.svg" width="40" height="40" alt="Azure"><br><sub><b>Azure</b></sub></td>
+    <td align="center" width="96"><img src="icons/git.svg" width="40" height="40" alt="Git"><br><sub><b>Git</b></sub></td>
+    <td align="center" width="96"><img src="icons/jira.svg" width="40" height="40" alt="Jira"><br><sub><b>Jira</b></sub></td>
   </tr>
 </table>
-
-**Also:** SQL · scikit-learn · OpenCV · MediaPipe · Cirq · Snowflake · Jira
 
 ## 📌 Some featured projects
 
@@ -53,4 +60,6 @@ Bigger one I can't share publicly: an Azure-based ML system detecting income sta
 
 ## 📫 Reach me
 
-<p><a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn"></a>&nbsp;<a href="PORTFOLIO_URL" title="Portfolio">🌐</a>&nbsp;<a href="mailto:jussiartturi.gronroos@gmail.com"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/email.svg" width="32" height="32" alt="Email" title="Email"></a></p>
+<p><a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="icons/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn"></a>&nbsp;<a href="PORTFOLIO_URL"><img src="icons/portfolio.svg" width="32" height="32" alt="Portfolio" title="Portfolio"></a>&nbsp;<a href="mailto:jussiartturi.gronroos@gmail.com"><img src="icons/email.svg" width="32" height="32" alt="Email" title="Email"></a></p>
+
+<sub>Icons: <a href="https://github.com/edent/SuperTinyIcons">SuperTinyIcons</a> (MIT) and <a href="https://simpleicons.org">Simple Icons</a> (CC0).</sub>
