@@ -1,6 +1,6 @@
 # Hei, I'm Jussi 👋
 
-CS master's student at **Aalto University** on the *Quantum-aware software systems* track, with a minor in ML, data science & AI. In parallel, I'm doing an M.Sc. in Software Product Management & Business at **LUT**, because I'm interested in both the technical and business sides of software.
+CS master's student at **Aalto University** on the *Quantum-aware software systems* track, with a minor in ML, data science & AI. In parallel, I'm doing an M.Sc. in Software Product Management & Business at **LUT**. I'm interested in both the technical and business sides of software.
 
 I like building things that turn real-world input (images, video, financial data, qubits) into something useful.
 
