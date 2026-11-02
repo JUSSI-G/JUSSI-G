@@ -77,6 +77,10 @@ The deck is reshuffled before every draw. Aces are high. Each month's first 100 
 
 ## 📫 Reach me
 
-<p><a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="icons/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn"></a>&nbsp;<a href="PORTFOLIO_URL"><img src="icons/portfolio.svg" width="32" height="32" alt="Portfolio" title="Portfolio"></a>&nbsp;<a href="mailto:jussiartturi.gronroos@gmail.com"><img src="icons/email.svg" width="32" height="32" alt="Email" title="Email"></a></p>
+<p>
+  <a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="icons/linkedin.svg" width="32" height="32" alt="" align="absmiddle"> LinkedIn</a>&nbsp;&nbsp;&nbsp;
+  <a href="PORTFOLIO_URL"><img src="icons/portfolio.svg" width="32" height="32" alt="" align="absmiddle"> Portfolio</a>&nbsp;&nbsp;&nbsp;
+  <a href="mailto:jussiartturi.gronroos@gmail.com"><img src="icons/email.svg" width="32" height="32" alt="" align="absmiddle"> Email</a>
+</p>
 
 <sub>Icons: <a href="https://github.com/edent/SuperTinyIcons">SuperTinyIcons</a> (MIT) and <a href="https://simpleicons.org">Simple Icons</a> (CC0).</sub>
