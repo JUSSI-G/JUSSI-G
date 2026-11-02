@@ -228,7 +228,7 @@ def render_board(state, path):
     fonts = _fonts()
     back = _card_layer(chr(0x1F0A0), fonts)
     face = _card_layer(glyph(state["current"]), fonts)
-    step = 0.08
+    step = 0.033
     times = [i * step for i in range(int(3.1 / step) + 2)]
     frames = [_frame(state, fonts, back, face, t) for t in times]
     still = _frame(state, fonts, back, face, 10)
