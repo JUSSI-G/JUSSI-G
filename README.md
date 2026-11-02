@@ -64,13 +64,13 @@ Bigger one I can't share publicly: an Azure-based ML system detecting income sta
 Anyone can play. Will the next card be **higher** or **lower** than the one on the table?
 The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href="https://quantumnumbers.anu.edu.au">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).
 
-<img src="game/table.svg?v=08fde9bd" alt="Card on the table: 7♦" width="340">
+<img src="game/table.svg?v=b1b8f12d" alt="Card on the table: 3♦" width="340">
 
-<sub>Recent: 8♣ · 5♦ · 5♥</sub>
+<sub>Recent: 7♦ · 8♣ · 5♦</sub>
 
 ### [▲ Higher](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Chigher&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%0A%0AYour%20result%20appears%20here%20as%20a%20comment%20in%20about%20a%20minute.%20You%20can%20also%20refresh%20the%20profile%20page%20to%20see%20the%20new%20card.) &nbsp;&nbsp;·&nbsp;&nbsp; [▼ Lower](https://github.com/JUSSI-G/JUSSI-G/issues/new?title=hilo%7Clower&body=Just%20press%20%2A%2ACreate%2A%2A%20below%2C%20no%20need%20to%20write%20anything.%0A%0AYour%20result%20appears%20here%20as%20a%20comment%20in%20about%20a%20minute.%20You%20can%20also%20refresh%20the%20profile%20page%20to%20see%20the%20new%20card.)
 
-**Community win rate: 56%**
+**Community win rate: 60%**
 
 **Just played? Give it up to a minute, then refresh the page to see your card.**
 
