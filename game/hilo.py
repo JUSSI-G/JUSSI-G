@@ -193,7 +193,7 @@ def render_readme_block(state):
         "## Higher or Lower?",
         "",
         "Anyone can play. Will the next card be **higher** or **lower** than the one on the table?",
-        "The deck is reshuffled before every draw. Aces are high.",
+        "The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool)."
         "",
         "<picture>",
         f'  <source media="(prefers-color-scheme: dark)" srcset="game/{state["board"]}.svg">',
@@ -203,9 +203,6 @@ def render_readme_block(state):
         "",
         *([f"<sub>Recent: {' · '.join(state['recent'])}</sub>", ""] if state.get("recent") else []),
         f"### [▲ Higher]({issue_link('higher')}) &nbsp;&nbsp;·&nbsp;&nbsp; [▼ Lower]({issue_link('lower')})",
-        "",
-        "<sub><img src=\"icons/cirq.svg\" width=\"14\" height=\"14\" alt=\"\"> Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).</sub>",
-        "",
         f"**Community win rate: {pct(w, total)}**",
         "",
         "**Just played? Give it up to a minute, then refresh the page to see your card.**",
