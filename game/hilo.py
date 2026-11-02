@@ -8,7 +8,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_FILE = ROOT / "game" / "state.json"
-SVG_FILE = ROOT / "game" / "table.svg"
+GAME_DIR = ROOT / "game"
 README_FILE = ROOT / "README.md"
 REPO = os.environ.get("GITHUB_REPOSITORY", "JUSSI-G/JUSSI-G")
 
@@ -92,7 +92,6 @@ def play(state, guess, user):
 CARD_W, CARD_H = 100, 133
 
 
-FONT_B64 = __import__("base64").b64encode((Path(__file__).parent / "cards.woff").read_bytes()).decode()
 FS = 174
 GX = 51 / 1000 * FS
 GY = 766 / 1000 * FS
@@ -103,76 +102,6 @@ RANK_OFF = {"A": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9":
 
 def glyph(card):
     return chr(SUIT_BASE[card[-1]] + RANK_OFF[card[:-1]])
-
-
-def _card(ch, x, y):
-
-
-    return (f'<rect class="bg" x="{x+1}" y="{y+1}" width="{CARD_W-2}" height="{CARD_H-2}" rx="7"/>'
-            f'<text class="c" x="{x-GX:.1f}" y="{y+GY:.1f}">{ch}</text>')
-
-
-def card_face(card, x, y):
-    return _card(glyph(card), x, y)
-
-
-def card_back(x, y):
-    return _card(chr(0x1F0A0), x, y)
-
-
-def render_svg(state):
-    W, H = 340, 230
-    deck_x, deal_x, top = 60, 220, 40
-    last = state.get("last")
-    verdict = ""
-    if last:
-        word, cls = {"win": ("CORRECT!", "win"), "loss": ("WRONG", "loss"), "tie": ("TIE", "tie")}[last["result"]]
-        verdict = (f'<text class="guess" x="{W/2}" y="212" text-anchor="middle">LAST GUESS {last["guess"].upper()} THAN {last["from"]}'
-                   f'<tspan class="verdict {cls}" dx="10">{word}</tspan></text>')
-    shuffle_cards = ""
-    for i in range(5):
-        shuffle_cards += f'<g class="sh sh{i}">{card_back(deck_x, top)}</g>'
-
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Card on the table: {state['current']}">
-  <style>
-    @font-face {{ font-family: Cards; src: url(data:font/woff;base64,{FONT_B64}) format("woff"); }}
-    .c {{ font-family: Cards; font-size: {FS}px; fill: #1f2328; }}
-    .bg {{ fill: #ffffff; }}
-    @media (prefers-color-scheme: dark) {{ .c {{ fill: #e6edf3; }} .bg {{ fill: #0d1117; }} }}
-    .sh, .deal, .flip-back, .flip-front {{ transform-box: fill-box; transform-origin: center; }}
-    .sh {{ animation: riffle .55s ease-in-out 3 both; }}
-    .sh0 {{ --dx: -46px; --r: -9deg; animation-delay: 0s; }}
-    .sh1 {{ --dx: 46px;  --r: 8deg;  animation-delay: .06s; }}
-    .sh2 {{ --dx: -30px; --r: -5deg; animation-delay: .12s; }}
-    .sh3 {{ --dx: 30px;  --r: 6deg;  animation-delay: .18s; }}
-    .sh4 {{ --dx: -14px; --r: -3deg; animation-delay: .24s; }}
-    @keyframes riffle {{
-      0%, 100% {{ transform: translate(0, 0) rotate(0); }}
-      50% {{ transform: translate(var(--dx), -6px) rotate(var(--r)); }}
-    }}
-    .deal {{ animation: deal .5s cubic-bezier(.3,.7,.3,1) 1.9s both; }}
-    @keyframes deal {{ from {{ transform: translateX(0); }} to {{ transform: translateX({deal_x - deck_x}px); }} }}
-    .flip-back {{ animation: hide .18s ease-in 2.4s both; }}
-    .flip-front {{ animation: show .18s ease-out 2.58s both; }}
-    @keyframes hide {{ from {{ transform: scaleX(1); }} to {{ transform: scaleX(0); }} }}
-    @keyframes show {{ from {{ transform: scaleX(0); }} to {{ transform: scaleX(1); }} }}
-    .guess {{ font: 600 13px -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #8b949e; letter-spacing: .06em; }}
-    .verdict {{ font-size: 17px; font-weight: 800; animation: pop .3s ease-out 2.8s both; }}
-    .win {{ fill: #2da44e; }} .loss {{ fill: #cf222e; }} .tie {{ fill: #8b949e; }}
-    @media (prefers-color-scheme: dark) {{ .win {{ fill: #3fb950; }} .loss {{ fill: #f85149; }} }}
-    @keyframes pop {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
-    .label {{ font: 600 12px -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #8b949e; letter-spacing: .08em; }}
-  </style>
-  <text class="label" x="{deck_x + CARD_W/2}" y="24" text-anchor="middle">DECK</text>
-  <text class="label" x="{deal_x + CARD_W/2}" y="24" text-anchor="middle">ON THE TABLE</text>
-  {shuffle_cards}
-  <g class="deal">
-    <g class="flip-back">{card_back(deck_x, top)}</g>
-    <g class="flip-front">{card_face(state['current'], deck_x, top)}</g>
-  </g>
-  {verdict}
-</svg>
-"""
 
 
 def pct(n, total):
@@ -195,11 +124,7 @@ def render_readme_block(state):
         "Anyone can play. Will the next card be **higher** or **lower** than the one on the table?",
         "The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).",
         "",
-        "<picture>",
-        f'  <source media="(prefers-color-scheme: dark)" srcset="game/{state["board"]}.svg">',
-        f'  <source media="(prefers-color-scheme: light)" srcset="game/{state["board"]}.svg">',
-        f'  <img src="game/{state["board"]}.png" alt="Card on the table: {state["current"]}" width="340">',
-        "</picture>",
+        f'<img src="game/{state["board"]}.png" alt="Card on the table: {state["current"]}" width="340">',
         "",
         *([f"<sub>Recent: {' · '.join(state['recent'])}</sub>", ""] if state.get("recent") else []),
         f"### [▲ Higher]({issue_link('higher')}) &nbsp;&nbsp;·&nbsp;&nbsp; [▼ Lower]({issue_link('lower')})",
@@ -212,46 +137,119 @@ def render_readme_block(state):
     ])
 
 
-def render_png(state, path):
-    from PIL import Image, ImageDraw, ImageFont
-    k = 2
-    W, H = 340 * k, 230 * k
-    deck_x, deal_x, top = 60, 220, 40
-    ink = (139, 148, 158, 255)
-    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+K = 2
+BOARD_W, BOARD_H = 340, 230
+DECK_X, DEAL_X, TOP = 60, 220, 40
+INK = (139, 148, 158, 255)
+VERDICT = {"win": ("CORRECT!", (45, 164, 78, 255)), "loss": ("WRONG", (207, 34, 46, 255)), "tie": ("TIE", INK)}
+SHUFFLE = [(-46, -9, 0.0), (46, 8, 0.06), (-30, -5, 0.12), (30, 6, 0.18), (-14, -3, 0.24)]
+
+
+def _fonts():
+    from PIL import ImageFont
+    woff = str(Path(__file__).parent / "cards.woff")
+    return {
+        "cards": ImageFont.truetype(woff, FS * K),
+        "suit": ImageFont.truetype(woff, 14 * K),
+        "label": ImageFont.load_default(12 * K),
+        "guess": ImageFont.load_default(13 * K),
+        "verdict": ImageFont.load_default(17 * K),
+    }
+
+
+def _card_layer(ch, fonts):
+    from PIL import Image, ImageDraw
+    pad = 4 * K
+    w, h = CARD_W * K + 2 * pad, CARD_H * K + 2 * pad
+    layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(layer).text((pad - GX * K, pad + GY * K), ch, font=fonts["cards"], fill=INK, anchor="ls")
+    mask = Image.new("L", (w, h), 0)
+    ImageDraw.Draw(mask).rounded_rectangle((pad + K, pad + K, w - pad - K, h - pad - K), radius=7 * K, fill=255)
+    return layer, mask
+
+
+def _place(canvas, card, x, y, angle=0.0, scale_x=1.0):
+    from PIL import Image
+    layer, mask = card
+    if scale_x < 0.02:
+        return
+    if scale_x != 1.0:
+        size = (max(1, round(layer.width * scale_x)), layer.height)
+        layer, mask = layer.resize(size, Image.BICUBIC), mask.resize(size, Image.BICUBIC)
+    if angle:
+        layer = layer.rotate(-angle, Image.BICUBIC, expand=True)
+        mask = mask.rotate(-angle, Image.BICUBIC, expand=True)
+    cx, cy = (x + CARD_W / 2) * K, (y + CARD_H / 2) * K
+    canvas.paste(layer, (round(cx - layer.width / 2), round(cy - layer.height / 2)), mask)
+
+
+def _frame(state, fonts, back, face, t):
+    import math
+    from PIL import Image, ImageDraw
+    im = Image.new("RGBA", (BOARD_W * K, BOARD_H * K), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    cards = ImageFont.truetype(str(Path(__file__).parent / "cards.woff"), FS * k)
-    label = ImageFont.load_default(12 * k)
-    guess_font = ImageFont.load_default(13 * k)
-    verdict_font = ImageFont.load_default(17 * k)
-    d.text(((deck_x + CARD_W / 2) * k, 24 * k), "DECK", font=label, fill=ink, anchor="ms")
-    d.text(((deal_x + CARD_W / 2) * k, 24 * k), "ON THE TABLE", font=label, fill=ink, anchor="ms")
-    d.text(((deck_x - GX) * k, (top + GY) * k), chr(0x1F0A0), font=cards, fill=ink, anchor="ls")
-    d.text(((deal_x - GX) * k, (top + GY) * k), glyph(state["current"]), font=cards, fill=ink, anchor="ls")
+    d.text(((DECK_X + CARD_W / 2) * K, 24 * K), "DECK", font=fonts["label"], fill=INK, anchor="ms")
+    d.text(((DEAL_X + CARD_W / 2) * K, 24 * K), "ON THE TABLE", font=fonts["label"], fill=INK, anchor="ms")
+
+    for dx, rot, delay in SHUFFLE:
+        local = t - delay
+        f = 0.0
+        if 0 < local < 1.65:
+            f = (1 - math.cos(2 * math.pi * (local % 0.55) / 0.55)) / 2
+        _place(im, back, DECK_X + dx * f, TOP - 6 * f, rot * f)
+
+    p = min(max((t - 1.9) / 0.5, 0), 1)
+    x = DECK_X + (DEAL_X - DECK_X) * (1 - (1 - p) ** 3)
+    if t < 2.58:
+        _place(im, back, x, TOP, scale_x=1 - min(max((t - 2.4) / 0.18, 0), 1))
+    else:
+        _place(im, face, x, TOP, scale_x=min(max((t - 2.58) / 0.18, 0), 1))
+
     last = state.get("last")
     if last:
-        word, col = {"win": ("CORRECT!", (45, 164, 78, 255)), "loss": ("WRONG", (207, 34, 46, 255)),
-                     "tie": ("TIE", ink)}[last["result"]]
-        suit_font = ImageFont.truetype(str(Path(__file__).parent / "cards.woff"), 14 * k)
+        word, col = VERDICT[last["result"]]
+        alpha = min(max((t - 2.8) / 0.3, 0), 1)
         left = f"LAST GUESS {last['guess'].upper()} THAN {last['from'][:-1]}"
         suit = last["from"][-1]
-        lw = d.textlength(left, font=guess_font)
-        sw = d.textlength(suit + " ", font=suit_font)
-        vw = d.textlength(word, font=verdict_font)
-        gap = 8 * k
-        x0 = (W - lw - sw - gap - vw) / 2
-        d.text((x0, 212 * k), left, font=guess_font, fill=ink, anchor="ls")
-        d.text((x0 + lw, 212 * k), suit, font=suit_font, fill=ink, anchor="ls")
-        d.text((x0 + lw + sw + gap, 212 * k), word, font=verdict_font, fill=col, anchor="ls")
-    im.save(path, optimize=True)
+        lw = d.textlength(left, font=fonts["guess"])
+        sw = d.textlength(suit + " ", font=fonts["suit"])
+        vw = d.textlength(word, font=fonts["verdict"])
+        gap = 8 * K
+        x0 = (BOARD_W * K - lw - sw - gap - vw) / 2
+        y0 = 212 * K
+        d.text((x0, y0), left, font=fonts["guess"], fill=INK, anchor="ls")
+        d.text((x0 + lw, y0), suit, font=fonts["suit"], fill=INK, anchor="ls")
+        if alpha > 0:
+            d.text((x0 + lw + sw + gap, y0), word, font=fonts["verdict"], fill=col[:3] + (round(255 * alpha),), anchor="ls")
+    return im
+
+
+def render_board(state, path):
+    fonts = _fonts()
+    back = _card_layer(chr(0x1F0A0), fonts)
+    face = _card_layer(glyph(state["current"]), fonts)
+    step = 0.08
+    times = [i * step for i in range(int(3.1 / step) + 2)]
+    frames = [_frame(state, fonts, back, face, t) for t in times]
+    still = _frame(state, fonts, back, face, 10)
+    durations = [0] + [step * 1000] * (len(frames) - 1) + [10000]
+    from PIL import Image
+    allf = [still] + frames
+    w, h = still.size
+    sheet = Image.new("RGBA", (w, h * len(allf)))
+    for i, f in enumerate(allf):
+        sheet.paste(f, (0, i * h))
+    sheet = sheet.quantize(colors=64, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.NONE)
+    small = [sheet.crop((0, i * h, w, (i + 1) * h)) for i in range(len(allf))]
+    small[0].save(path, save_all=True, append_images=small[1:], default_image=True,
+                  duration=durations, loop=1, optimize=True)
 
 
 def write_outputs(state):
     board = f"board-{RNG.getrandbits(32):08x}"
-    for old in list(SVG_FILE.parent.glob("board-*")) + [SVG_FILE]:
+    for old in list(GAME_DIR.glob("board-*")) + [GAME_DIR / "table.svg"]:
         old.unlink(missing_ok=True)
-    (SVG_FILE.parent / f"{board}.svg").write_text(render_svg(state), encoding="utf-8")
-    render_png(state, SVG_FILE.parent / f"{board}.png")
+    render_board(state, GAME_DIR / f"{board}.png")
     state["board"] = board
     text = README_FILE.read_text(encoding="utf-8")
     block = render_readme_block(state)
