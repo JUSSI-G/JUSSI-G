@@ -78,9 +78,9 @@ The deck is reshuffled before every draw. Aces are high. Each month's first 100 
 ## 📫 Reach me
 
 <p>
-  <a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="icons/linkedin.svg" width="32" height="32" alt="" align="absmiddle">&nbsp;&nbsp;LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="PORTFOLIO_URL"><img src="icons/portfolio.svg" width="32" height="32" alt="" align="absmiddle">&nbsp;&nbsp;Portfolio</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="mailto:jussiartturi.gronroos@gmail.com"><img src="icons/email.svg" width="32" height="32" alt="" align="absmiddle">&nbsp;&nbsp;Email</a>
+  <a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="icons/linkedin.svg" width="32" height="32" alt="" align="absmiddle"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/YOUR_HANDLE">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="PORTFOLIO_URL"><img src="icons/portfolio.svg" width="32" height="32" alt="" align="absmiddle"></a>&nbsp;&nbsp;<a href="PORTFOLIO_URL">Portfolio</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="mailto:jussiartturi.gronroos@gmail.com"><img src="icons/email.svg" width="32" height="32" alt="" align="absmiddle"></a>&nbsp;&nbsp;<a href="mailto:jussiartturi.gronroos@gmail.com">Email</a>
 </p>
 
 <sub>Icons: <a href="https://github.com/edent/SuperTinyIcons">SuperTinyIcons</a> (MIT) and <a href="https://simpleicons.org">Simple Icons</a> (CC0).</sub>
