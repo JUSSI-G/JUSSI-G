@@ -1,19 +1,19 @@
 {
-  "current": "Q♠",
-  "previous": "5♥",
+  "current": "A♦",
+  "previous": "Q♠",
   "wins": 8,
-  "losses": 2,
+  "losses": 3,
   "ties": 2,
   "last": {
-    "guess": "higher",
-    "from": "5♥",
-    "to": "Q♠",
-    "result": "win",
+    "guess": "lower",
+    "from": "Q♠",
+    "to": "A♦",
+    "result": "loss",
     "source": "quantum"
   },
   "recent": [
+    "Q♠",
     "5♥",
-    "3♦",
-    "7♦"
+    "3♦"
   ]
 }
