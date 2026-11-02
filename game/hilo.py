@@ -127,7 +127,7 @@ def render_svg(state):
     verdict = ""
     if last:
         word, cls = {"win": ("CORRECT!", "win"), "loss": ("WRONG", "loss"), "tie": ("TIE", "tie")}[last["result"]]
-        verdict = (f'<text class="guess" x="{W/2}" y="212" text-anchor="middle">GUESSED {last["guess"].upper()} THAN {last["from"]}'
+        verdict = (f'<text class="guess" x="{W/2}" y="212" text-anchor="middle">LAST GUESS {last["guess"].upper()} THAN {last["from"]}'
                    f'<tspan class="verdict {cls}" dx="10">{word}</tspan></text>')
     shuffle_cards = ""
     for i in range(5):
@@ -193,12 +193,18 @@ def render_readme_block(state):
         "## Higher or Lower?",
         "",
         "Anyone can play. Will the next card be **higher** or **lower** than the one on the table?",
-        "The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).",
+        "The deck is reshuffled before every draw. Aces are high.",
         "",
-        f'<img src="game/table.svg?v={RNG.getrandbits(32):08x}" alt="Card on the table: {state["current"]}" width="340">',
+        "<picture>",
+        f'  <source media="(prefers-color-scheme: dark)" srcset="game/{state["board"]}.svg">',
+        f'  <source media="(prefers-color-scheme: light)" srcset="game/{state["board"]}.svg">',
+        f'  <img src="game/{state["board"]}.png" alt="Card on the table: {state["current"]}" width="340">',
+        "</picture>",
         "",
         *([f"<sub>Recent: {' · '.join(state['recent'])}</sub>", ""] if state.get("recent") else []),
         f"### [▲ Higher]({issue_link('higher')}) &nbsp;&nbsp;·&nbsp;&nbsp; [▼ Lower]({issue_link('lower')})",
+        "",
+        "<sub><img src=\"icons/cirq.svg\" width=\"14\" height=\"14\" alt=\"\"> Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).</sub>",
         "",
         f"**Community win rate: {pct(w, total)}**",
         "",
@@ -209,8 +215,47 @@ def render_readme_block(state):
     ])
 
 
+def render_png(state, path):
+    from PIL import Image, ImageDraw, ImageFont
+    k = 2
+    W, H = 340 * k, 230 * k
+    deck_x, deal_x, top = 60, 220, 40
+    ink = (139, 148, 158, 255)
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    cards = ImageFont.truetype(str(Path(__file__).parent / "cards.woff"), FS * k)
+    label = ImageFont.load_default(12 * k)
+    guess_font = ImageFont.load_default(13 * k)
+    verdict_font = ImageFont.load_default(17 * k)
+    d.text(((deck_x + CARD_W / 2) * k, 24 * k), "DECK", font=label, fill=ink, anchor="ms")
+    d.text(((deal_x + CARD_W / 2) * k, 24 * k), "ON THE TABLE", font=label, fill=ink, anchor="ms")
+    d.text(((deck_x - GX) * k, (top + GY) * k), chr(0x1F0A0), font=cards, fill=ink, anchor="ls")
+    d.text(((deal_x - GX) * k, (top + GY) * k), glyph(state["current"]), font=cards, fill=ink, anchor="ls")
+    last = state.get("last")
+    if last:
+        word, col = {"win": ("CORRECT!", (45, 164, 78, 255)), "loss": ("WRONG", (207, 34, 46, 255)),
+                     "tie": ("TIE", ink)}[last["result"]]
+        suit_font = ImageFont.truetype(str(Path(__file__).parent / "cards.woff"), 14 * k)
+        left = f"GUESSED {last['guess'].upper()} THAN {last['from'][:-1]}"
+        suit = last["from"][-1]
+        lw = d.textlength(left, font=guess_font)
+        sw = d.textlength(suit + " ", font=suit_font)
+        vw = d.textlength(word, font=verdict_font)
+        gap = 8 * k
+        x0 = (W - lw - sw - gap - vw) / 2
+        d.text((x0, 212 * k), left, font=guess_font, fill=ink, anchor="ls")
+        d.text((x0 + lw, 212 * k), suit, font=suit_font, fill=ink, anchor="ls")
+        d.text((x0 + lw + sw + gap, 212 * k), word, font=verdict_font, fill=col, anchor="ls")
+    im.save(path, optimize=True)
+
+
 def write_outputs(state):
-    SVG_FILE.write_text(render_svg(state), encoding="utf-8")
+    board = f"board-{RNG.getrandbits(32):08x}"
+    for old in list(SVG_FILE.parent.glob("board-*")) + [SVG_FILE]:
+        old.unlink(missing_ok=True)
+    (SVG_FILE.parent / f"{board}.svg").write_text(render_svg(state), encoding="utf-8")
+    render_png(state, SVG_FILE.parent / f"{board}.png")
+    state["board"] = board
     text = README_FILE.read_text(encoding="utf-8")
     block = render_readme_block(state)
     if START in text and END in text:

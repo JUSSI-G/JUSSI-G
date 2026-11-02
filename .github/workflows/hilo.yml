@@ -23,6 +23,8 @@ jobs:
         with:
           python-version: "3.12"
 
+      - run: pip install pillow
+
       - name: Deal the next card
         id: move
         env:
@@ -38,7 +40,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md game/state.json game/table.svg
+          git add -A README.md game
           git commit -m "🃏 A card was played"
           for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
 
