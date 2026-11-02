@@ -63,10 +63,11 @@ Bigger one I can't share publicly: an Azure-based ML system detecting income sta
 
 Anyone can play. Will the next card be **higher** or **lower** than the one on the table?
 The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href="https://quantumnumbers.anu.edu.au">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).
+
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="game/board-464a2055.svg">
-  <source media="(prefers-color-scheme: light)" srcset="game/board-464a2055.svg">
-  <img src="game/board-464a2055.png" alt="Card on the table: A♦" width="340">
+  <source media="(prefers-color-scheme: dark)" srcset="game/board-5f921ca5.svg">
+  <source media="(prefers-color-scheme: light)" srcset="game/board-5f921ca5.svg">
+  <img src="game/board-5f921ca5.png" alt="Card on the table: A♦" width="340">
 </picture>
 
 <sub>Recent: Q♠ · 5♥ · 3♦</sub>

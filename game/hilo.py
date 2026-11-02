@@ -193,7 +193,7 @@ def render_readme_block(state):
         "## Higher or Lower?",
         "",
         "Anyone can play. Will the next card be **higher** or **lower** than the one on the table?",
-        "The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool)."
+        "The deck is reshuffled before every draw. Aces are high. Each month's first 100 draws are made using quantum vacuum fluctuations measured by the <a href=\"https://quantumnumbers.anu.edu.au\">ANU Quantum Random Numbers</a> lab, because it creates true randomness (and it's cool).",
         "",
         "<picture>",
         f'  <source media="(prefers-color-scheme: dark)" srcset="game/{state["board"]}.svg">',
@@ -233,7 +233,7 @@ def render_png(state, path):
         word, col = {"win": ("CORRECT!", (45, 164, 78, 255)), "loss": ("WRONG", (207, 34, 46, 255)),
                      "tie": ("TIE", ink)}[last["result"]]
         suit_font = ImageFont.truetype(str(Path(__file__).parent / "cards.woff"), 14 * k)
-        left = f"GUESSED {last['guess'].upper()} THAN {last['from'][:-1]}"
+        left = f"LAST GUESS {last['guess'].upper()} THAN {last['from'][:-1]}"
         suit = last["from"][-1]
         lw = d.textlength(left, font=guess_font)
         sw = d.textlength(suit + " ", font=suit_font)
