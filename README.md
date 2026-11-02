@@ -1,13 +1,12 @@
 # Hei, I'm Jussi 👋
 
 CS master's student at **Aalto University** on the *Quantum-aware software systems* track, with a minor in ML, data science & AI.
-I like building things that turn messy real-world input (images, video, financial data, qubits) into something useful.
+I like building things that turn real-world input (images, video, financial data, qubits) into something useful.
 
 Bits of info about me:
 - Software & Systems Engineering B.Sc. from LUT + double degree from Hebei University of Technology, China
 - Currently exploring quantum compilation, computer vision and on-device ML
 - Have led a Scrum team building an Azure ML system for a real client, and co-founded three student associations in Lahti
-- Open to internships and summer roles in software, ML or quantum computing
 
 ## 🛠️ Stack
 
