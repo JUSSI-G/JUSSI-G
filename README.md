@@ -45,10 +45,9 @@ Bits of info about me:
 
 | Project | What it does |
 |---|---|
-| [**Fitness form predictor**](https://github.com/JUSSI-G/REPO_NAME) | Browser app that analyzes lifting videos on-device with MediaPipe pose estimation, counts reps and gives per-rep feedback on depth, tempo and form. |
-| [**BV-optimizer**](https://github.com/JUSSI-G/REPO_NAME) | A small quantum-compilation pipeline for the Bernstein–Vazirani algorithm, built with Cirq. |
-| [**License plate recognition**](https://github.com/JUSSI-G/REPO_NAME) | End-to-end ALPR pipeline: preprocessing, segmentation and CNN-based character recognition with Python and OpenCV. |
-| [**Transfer value predictor**](https://github.com/JUSSI-G/REPO_NAME) | Predicts a football player's market value from their season stats. |
+| [**Fitness form predictor**](https://github.com/JUSSI-G/formcheck) | Browser app that analyzes lifting videos on-device with MediaPipe pose estimation, counts reps and gives per-rep feedback on depth, tempo and form. |
+| [**BV-optimizer**](https://github.com/JUSSI-G/bv-optimizer) | A small quantum-compilation pipeline for the Bernstein–Vazirani algorithm, built with Cirq. |
+| [**BoxBox**](https://github.com/JUSSI-G/BoxBox) | F1 strategy analysis across 30 years of pit stops with XGBoost and a Flask dashboard, testing whether software has made strategy mistakes matter less. Built from my bachelor's thesis. |
 
 Bigger one I can't share publicly: an Azure-based ML system detecting income statement anomalies for **Virnex Group** (LUT capstone, I was Scrum lead + full-stack).
 
@@ -78,10 +77,14 @@ The deck is reshuffled before every draw. Aces are high. Each month's first 100 
 
 ## 📫 Reach me
 
+<<<<<<< HEAD
 <p>
   <a href="https://www.linkedin.com/in/YOUR_HANDLE"><img src="icons/linkedin.svg" width="32" height="32" alt="" align="absmiddle"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/YOUR_HANDLE">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="PORTFOLIO_URL"><img src="icons/portfolio.svg" width="32" height="32" alt="" align="absmiddle"></a>&nbsp;&nbsp;<a href="PORTFOLIO_URL">Portfolio</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="mailto:jussiartturi.gronroos@gmail.com"><img src="icons/email.svg" width="32" height="32" alt="" align="absmiddle"></a>&nbsp;&nbsp;<a href="mailto:jussiartturi.gronroos@gmail.com">Email</a>
 </p>
+=======
+<p><a href="https://www.linkedin.com/in/jussi-gr%C3%B6nroos"><img src="icons/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn"></a>&nbsp;<a href="PORTFOLIO_URL"><img src="icons/portfolio.svg" width="32" height="32" alt="Portfolio" title="Portfolio"></a>&nbsp;<a href="mailto:jussiartturi.gronroos@gmail.com"><img src="icons/email.svg" width="32" height="32" alt="Email" title="Email"></a></p>
+>>>>>>> ef89e27 (links and project changes)
 
 <sub>Icons: <a href="https://github.com/edent/SuperTinyIcons">SuperTinyIcons</a> (MIT) and <a href="https://simpleicons.org">Simple Icons</a> (CC0).</sub>
