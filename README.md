@@ -1,3 +1,5 @@
+<p align="right"> <a href="https://www.linkedin.com/in/jussi-gr%C3%B6nroos"><img src="icons/linkedin.svg" width="20" height="20" alt="" align="absmiddle"></a>&nbsp;<a href="https://www.linkedin.com/in/jussi-gr%C3%B6nroos">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://gronroos.dev"><img src="icons/portfolio.svg" width="20" height="20" alt="" align="absmiddle"></a>&nbsp;<a href="https://gronroos.dev">Portfolio</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto:jussi@gronroos.dev"><img src="icons/email.svg" width="20" height="20" alt="" align="absmiddle"></a>&nbsp;<a href="mailto:jussi@gronroos.dev">Email</a> </p>
+
 # Hei, I'm Jussi 👋
 
 CS master's student at **Aalto University** on the *Quantum-aware software systems* track, with a minor in ML, data science & AI. In parallel, I'm doing an M.Sc. in Software Product Management & Business at **LUT**. I'm interested in both the technical and business sides of software.
